@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="bckGrnd">
+            <div class="kontenjer">
+                <div class="divovi 2">
+                    <input onclick="javascript:dodatniOpis();" type="radio" id="nacinPovrata1" name="povrat" value="osobnipovrat" />
+                    <label for="nacinPovrata">Osobna dostava</label>
+                </div>
+                <div class="divovi 3" id="opis1" style="display: none;">
+                    <p>Sami odabirete dostavinu službu ili sami dostavljate proizvod na naše skladište</p>
+                </div>
+                <div class="divovi 2">
+                    <input onclick="javascript:dodatniOpis();" type="radio" id="nacinPovrata2" name="povrat" value="osobnipovrat" />
+                    <label for="nacinPovrata">Dostava HP-om</label>
+                </div>
+                <div class="divovi 3" id="opis2" style="display: none;">
+                    <p>HP ekspres preuzima proizvod sa Vaše adrese</p>
+                </div>
+                <div class="divovi 2">
+                    <input onclick="javascript:dodatniOpis();" type="radio" id="nacinPovrata3" name="povrat" value="osobnipovrat" />
+                    <label for="nacinPovrata">Povrat na pick up point</label>
+                </div>
+                <div class="divovi 3" id="opis3" style="display: none;">
+                    <p>Sami vraćate proizvod na jednu od pickup lokacija</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            function dodatniOpis() {
+            var opis1 = document.getElementById("nacinPovrata1");
+            var opis2 = document.getElementById("nacinPovrata2");
+            var opis3 = document.getElementById("nacinPovrata3");
+            var div_opis1 = document.getElementById("opis1");
+            var div_opis2 = document.getElementById("opis2");
+            var div_opis3 = document.getElementById("opis3");
+            if (opis1.checked === true) {
+                div_opis1.style.display = "block";
+                div_opis2.style.display = "none";
+                div_opis3.style.display = "none";
+            } 
+            else if (opis2.checked === true) {
+                div_opis2.style.display = "block";
+                div_opis1.style.display = "none";
+                div_opis3.style.display = "none";
+            }
+            else if (opis3.checked === true) {
+                div_opis3.style.display = "block";
+                div_opis2.style.display = "none";
+                div_opis1.style.display = "none";
+            }
+            else {
+                div_opis1.style.display = "none";
+                div_opis2.style.display = "none";
+                div_opis3.style.display = "none";
+            }
+        }
+        </script>
+    </body>
+</html>

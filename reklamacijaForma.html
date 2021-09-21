@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="bckGrnd">
+        <div id="druga" class="reklamacija" style="display: block;">
+            <form id=formaReklamacija>
+                <label for="tipReklamacije">Odaberite vrstu problema</label>
+                <select class="select" onclick="odabirTipaReklamacije()" name="tipReklamacije" id="tipReklamacije">
+                    <option disabled selected value> -- Odabeite jedno od ponuđenog -- </option>
+                    <option value="steta">Oštećeno</option>
+                    <option value="servis">Neispravno</option>
+                    <option value="nepotpuno">Nepotpuno</option>
+                </select>
+            </form>
+            <div id="steta" style="display: none;">
+                <div class="divovi">
+                    <label for="slikaStete">Učitajte sliku štete, molim vas minimalno dvije slike štete</label>
+                    <input type="file" id="slikaStete" name="slikaStete" accept="image/*" multiple>
+                </div>
+                <div class="divovi">
+                    <label for="slikaAmbalaze">Učitajte sliku ambalaže, molim vas minimalno dvije slike ambalaže</label>
+                    <input type="file" id="slikaAmbalaze" name="slikaAmbalaze" accept="image/*" multiple>
+                </div>
+                <label for="opis">Unesite kratak opis problema</label>
+                <input type="text" name="opis">
+                <div class="divovi">
+                    <label for="kontaktO">Kontakt osoba</label>
+                    <input type="text" name="kontaktO">
+                    <label for="kontaktB">Kontakt broj</label>
+                    <input type="text" name="kontaktB">
+                </div>
+                <label for="rjesenjeStete">Željeno rješenje štete</label>
+                <select class="select" onclick="checkRjesenjeStete()" name="rjesenjeStete" id="rjesenjeStete">
+                    <option disabled selected value> -- Odabeite jedno od ponuđenog -- </option>
+                    <option value="refundacija">Refundacija dijela sredstava</option>
+                    <option value="zamjena">Zamjena proizvoda</option>
+                    <option value="povratNovaca">Povrat sredstava</option>
+                </select>
+                <div id="povratSredstavaStetaIBAN" style="display: none;">
+                    <form>
+                        <label for="povratSredstava">Unesite IBAN</label>
+                        <input name='povratSredstava' type="text">
+                    </form>
+                </div>
+            </div>
+            <div id="servis" style="display: none;">
+                <div class="divovi">
+                    <label for="slikaServis">Učitajte sliku proizvoda, molim vas minimalno dvije slike proizvoda</label>
+                    <input type="file" id="slikaServis" name="slikaServis" accept="image/*" multiple>
+                </div>
+                <label for="opis">Unesite kratak opis problema</label>
+                <input type="text" name="opis">
+                <div class="divovi">
+                    <label for="kontaktO">Kontakt osoba</label>
+                    <input type="text" name="kontaktO">
+                    <label for="kontaktB">Kontakt broj</label>
+                    <input type="text" name="kontaktB">
+                </div>
+                <label for="rjesenjeServisa">Željeno rješenje</label>
+                <select class="select" name="rjesenjeServisa" id="rjesenjeServisa">
+                    <option disabled selected value> -- Odabeite jedno od ponuđenog -- </option>
+                    <option value="servis">Servis</option>
+                    <option value="zamjena">Zamjena proizvoda</option>
+                    <option value="povratNovaca">Povrat sredstava</option>
+                </select>
+            </div>
+            <div id="nepotpuno" style="display: none;">
+                <div class="divovi">
+                    <input onclick="javascript:faliDioFun();" type="radio" id="faliDio" name="fali" value="NedostajeDio" />
+                    <label for="faliDio">Nedostaje dio dostavljenog proizvoda</label>
+                    <input onclick="javascript:faliDioFun();" type="radio" id="faliProizvod" name="fali" value="NedostajeProizvod" />
+                    <label for="faliProizvod">Nedostaje proizvod</label>
+                </div>
+                <div id="slikaFaliDio" style="display: none;">
+                    <label for="slikaFaliDioProizvoda">Učitajte sliku dijela proizvoda koji fali</label>
+                    <input type="file" id="slikaFaliDioProizvoda" name="slikaFaliDioProizvoda" accept="image/*" multiple>
+                </div>
+                <label for="opis">Unesite kratak opis problema</label>
+                <input type="text" name="opis">
+                <div class="divovi">
+                    <label for="kontaktO">Kontakt osoba</label>
+                    <input type="text" name="kontaktO">
+                    <label for="kontaktB">Kontakt broj</label>
+                    <input type="text" name="kontaktB">
+                </div>
+                <label for="rjesenjeNepotpuno">Željeno rješenje</label>
+                <select class="select" name="rjesenjeNepotpuno" id="rjesenjeNepotpuno">
+                    <option disabled selected value> -- Odabeite jedno od ponuđenog -- </option>
+                    <option value="servis">Slanje novog proizvoda</option>
+                    <option value="povratNovaca">Povrat sredstava</option>
+                </select>
+            </div>
+        </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        function odabirTipaReklamacije() {
+            if (document.getElementById('tipReklamacije').value == 'steta') {
+                document.getElementById('steta').style.display='block';
+                document.getElementById('servis').style.display='none';
+                document.getElementById('nepotpuno').style.display='none';
+            }
+            else if (document.getElementById('tipReklamacije').value == 'servis') {
+                document.getElementById('steta').style.display='none';
+                document.getElementById('servis').style.display='block';
+                document.getElementById('nepotpuno').style.display='none';
+            }
+            else if (document.getElementById('tipReklamacije').value == 'nepotpuno') {
+                document.getElementById('steta').style.display='none';
+                document.getElementById('servis').style.display='none';
+                document.getElementById('nepotpuno').style.display='block';
+            }
+            else {
+                document.getElementById('steta').style.display='none';
+                document.getElementById('servis').style.display='none';
+                document.getElementById('nepotpuno').style.display='none';
+            }
+        }
+        function checkRjesenjeStete() {
+            if (document.getElementById('rjesenjeStete').value == 'povratNovaca') {
+                document.getElementById('povratSredstavaStetaIBAN').style.display='block';
+            }
+            else {
+                document.getElementById('povratSredstavaStetaIBAN').style.display='none';
+            }
+        }
+        function faliDioFun() {
+            var yes = document.getElementById("faliDio");
+            var div_slika = document.getElementById("slikaFaliDio");
+            if (yes.checked === true) {
+                div_slika.style.display = "block";
+            } 
+            else {
+                div_slika.style.display = "none";
+            }
+        }
+
+    </script>
+</html>

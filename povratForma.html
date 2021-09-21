@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="bckGrnd">
+        <div id="prva" class="povrat" style="display: block;">
+            <form id="formaPovrat">
+            <div class="divovi">
+                <label for="razlogPovrata">Razlog povrata:</label>
+                <select onclick="saljiNaReklamaciju()" class="select" name="razlogPovrata" id="razlogPovrata">
+                    <option disabled selected value> -- Odabeite jedno od ponuđenog -- </option>
+                    <option value="nijeIsto">Nije isto kao i na web-u</option>
+                    <option value="neSvida">Ne sviđa mi se</option>
+                    <option value="neispravno">Neispravno</option>
+                </select>
+                <label for="slikaPovrata">Postavite sliku povrata</label>
+                <input type="file" id="slikaPovrata" name="slikaPovrata" accept="image/*" multiple>
+            </div>
+            <div class="divovi">
+                <label for="kontaktO">Kontakt osoba</label>
+                <input type="text" name="kontaktO">
+                <label for="kontaktB">Kontakt broj</label>
+                <input type="text" name="kontaktB">
+            </div>
+            <div class="divovi">
+                <label for="rjesenjePovrata">Željeno rješenje povrata</label>
+                <select onclick="checkRjesenjePovrata()" name="rjesenjePovrata" id="rjesenjePovrata">
+                    <option disabled selected value> -- Odabeite jedno od ponuđenog -- </option>
+                    <option value="zamjenaZaIsti">Zamjena za isti proizvod</option>
+                    <option value="povratSredstava">Povrat sredstava</option>
+                    <option value="zamjenaZaDrugi">Zamjena za drugi proizvod</option>
+                </select>
+                <div id="zamjenaDrugi" style="display: none;">
+                    <form>
+                        <label for="noviproizvod">Unesite šifru ili link novog proizvoda</label>
+                        <input name='noviproizvod' type="text">
+                    </form>
+                </div>
+                <div id="povratSredstavaIBAN" style="display: none;">
+                    <form>
+                        <label for="povratSredstava">Unesite IBAN</label>
+                        <input name='povratSredstava' type="text">
+                    </form>
+                </div>
+            </div>
+            <div class="divovi">
+                <button type="submit" value="Predajte zahtjev"><a href="povrat.html" class="linkA">Predajte zahtjev</a></button>
+            </div>
+            </form>
+        </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        function saljiNaReklamaciju() {
+            if (document.getElementById('razlogPovrata').value === 'neispravno') {
+                window.location = "/Users/ivan.filipovic1/Desktop/New folder/reklamacijaForma.html";
+            }
+        }
+        function checkRjesenjePovrata() {
+            if (document.getElementById('rjesenjePovrata').value == 'povratSredstava') {
+                document.getElementById('povratSredstavaIBAN').style.display='block';
+                document.getElementById('zamjenaDrugi').style.display='none';
+            }
+            else if (document.getElementById('rjesenjePovrata').value == 'zamjenaZaDrugi') {
+                document.getElementById('zamjenaDrugi').style.display='block';
+                document.getElementById('povratSredstavaIBAN').style.display='none';
+            } 
+            else {
+                document.getElementById('povratSredstavaIBAN').style.display='none';
+                document.getElementById('zamjenaDrugi').style.display='none';
+            }
+        }
+
+    </script>
+</html>

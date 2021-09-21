@@ -1,0 +1,119 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    padding: 5px;
+    margin: auto;
+}
+:root {
+    --input-border: #8b8a8b;
+    --input-focus-h: 245;
+    --input-focus-s: 100%;
+    --input-focus-l: 42%;
+  }
+body {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+
+}
+.bckGrnd {
+    background: #e6e6e6;
+    width: 90%;
+    height: 400px;
+    position: relative;
+}
+.gumbi {
+    display: block;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+}
+input {
+    width: 33%;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #000000;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;
+    border-radius: 18px;
+    margin-top: 8px;
+  }
+div {
+    text-align: center;
+}
+button {
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 25px;
+    font-size: 14px;
+    line-height: 1.375;
+    border-radius: 3px;
+    border-radius: 30px;
+    border: none;
+    color: #ffffff;
+    background-color: #f35132;
+    border-color: #f35132;
+}
+
+button:hover {
+	background-color:#fd7b61;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+select {
+    text-transform: uppercase;
+    font-size: 13px;
+    padding-right: 30px;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    cursor: default;
+    margin-top: 8px;
+}
+
+label {
+    text-transform: uppercase;
+    font-size: 13px;
+    padding-right: 30px;
+    margin-top: 8px;
+  }
+
+.divovi {
+    display: block;
+}
+.divovi2, .divovi3 {
+    width: 50%;
+    float: left;
+}
+#faliProizvod, #faliDio {
+    width: 1%;
+}
+#nacinPovrata1, #nacinPovrata2, #nacinPovrata3 {
+    position: left;
+    width: 1%;
+}
+.linkA{
+    text-decoration: none;
+    color: white;
+}
+.kontenjer {
+
+    margin: 0px;
+    text-align: left;
+}
+
